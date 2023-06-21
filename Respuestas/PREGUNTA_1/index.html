@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pregunta 1</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<style type="text/css">
+		#background{position:absolute; width:99%; height:130%;}
+		#fixed {position:absolute; top: 0px; left: 0px;}
+	</style>
+</head>
+<body>
+	<div>
+		<img id="background" src="../../Imagenes/fondo.jpg"/> 
+	</div>
+	<div id="fixed" style="padding-left:30%; padding-top: 10%;">
+		<br>	
+		<img src="../../Imagenes/selloespe.jpg" width="65%" align="center">
+		<h1 style="padding-left:25%;">Pregunta 1</h1>
+		<p id="pregunta"> Analizar una cadena de texto en un objeto DOM XML y extraer esa Información con JavaScript</p>
+		<p id="descripcion"> Para este ejercicio se utilizara una cadena de texto sobre SISTEMAS OPERATIVOS de celulares dentro de una tienda.</p>
+		<p id="p3">Tienda de Celulares</p>
+        <p style="padding-left:15%;">
+			<button onclick="soPrimero();"> Traer Sistema Operativo del Primer Celular </button>
+		</p>
+        <p style="padding-left:15%;">
+			<button onclick="soSegundo();"> Traer Sistema Operativo del Segundo Celular </button>
+		</p>
+        <p style="padding-left:15%;">
+			<button onclick="soTercer();"> Traer Sistema Operativo del Tercer Celular </button>
+		</p>
+        <p style="padding-left:15%;">
+			<button onclick="soCuarto();"> Traer Sistema Operativo del Cuarto Celular </button>
+		</p>
+        <p style="padding-left:15%;">
+			<button onclick="soQuinto();"> Traer Sistema Operativo del Quinto Celular </button>
+		</p>
+        <p style="padding-left:15%;">
+			<button onclick="soSexto();"> Traer Sistema Operativo del Sexto Celular </button>
+		</p>
+        <p style="padding-left:15%;">
+			<button onclick="soSeptimo();"> Traer Sistema Operativo del Septimo Celular </button>
+		</p>
+        <p id="descripcion"> Para este ejercicio se utilizara una cadena de texto sobre CUANTOS celulares TIENEN DETERMINADOS SISTEMAS OPERATIVOS dentro de una tienda.</p>
+        <p style="padding-left:15%;">
+			<button onclick="numAndroid();"> CUANTOS DISPOSITIVOS CON ANDROID </button>
+		</p>
+        <p style="padding-left:15%;">
+			<button onclick="numSO();"> CUANTOS DISPOSITIVOS CON OS </button>
+		</p>
+		<p style="padding-left:35%;"id="imprimirR"></p>
+		<br>
+		<button onclick="window.location.href='../../index.html'">Menu principal</button>
+	</div>
+	
+
+	<script>
+		var texto, documentoXML;
+		var text = "<tienda><celular><marca>Samsung</marca><modelo>A30</modelo><estado>nuevo</estado><sistemaoperativo>android</sistemaoperativo></celular><celular><marca>iPhone</marca><modelo>XII</modelo><estado>Usado</estado><sistemaoperativo>OS</sistemaoperativo></celular><celular><marca>Xiamoi</marca><modelo>Redmi</modelo><estado>nuevo</estado><sistemaoperativo>android</sistemaoperativo></celular><celular><marca>Huawei</marca><modelo>Pro Lite</modelo><estado>Usado</estado><sistemaoperativo>android</sistemaoperativo></celular><celular><marca>iPhone</marca><modelo>X</modelo><estado>Usado</estado><sistemaoperativo>OS</sistemaoperativo></celular><celular><marca>iPhone</marca><modelo>XI</modelo><estado>Usado</estado><sistemaoperativo>OS</sistemaoperativo></celular><celular><marca>Xiami</marca><modelo>Note10</modelo><estado>nuevo</estado><sistemaoperativo>android</sistemaoperativo></celular></tienda>"; 
+
+		texto = new DOMParser();
+		documentoXML = texto.parseFromString(text,"text/xml");
+
+		function soPrimero(){
+			document.getElementById("imprimirR").innerHTML = 
+			documentoXML.getElementsByTagName("sistemaoperativo")[0].childNodes[0].nodeValue;
+		}
+
+        function soSegundo(){
+			document.getElementById("imprimirR").innerHTML = 
+			documentoXML.getElementsByTagName("sistemaoperativo")[1].childNodes[0].nodeValue;
+		}
+
+        function soTercer(){
+			document.getElementById("imprimirR").innerHTML = 
+			documentoXML.getElementsByTagName("sistemaoperativo")[2].childNodes[0].nodeValue;
+		}
+
+        function soCuarto(){
+			document.getElementById("imprimirR").innerHTML = 
+			documentoXML.getElementsByTagName("sistemaoperativo")[3].childNodes[0].nodeValue;
+		}
+
+        function soQuinto(){
+			document.getElementById("imprimirR").innerHTML = 
+			documentoXML.getElementsByTagName("sistemaoperativo")[4].childNodes[0].nodeValue;
+		}
+
+        function soSexto(){
+			document.getElementById("imprimirR").innerHTML = 
+			documentoXML.getElementsByTagName("sistemaoperativo")[5].childNodes[0].nodeValue;
+		}
+
+        function soSeptimo(){
+			document.getElementById("imprimirR").innerHTML = 
+			documentoXML.getElementsByTagName("sistemaoperativo")[6].childNodes[0].nodeValue;
+		}
+
+        function numAndroid(){
+            var contador = 0;
+            for(let i=0;i<7;i++){
+                var cantAndroid = documentoXML.getElementsByTagName("sistemaoperativo")[i].childNodes[0].nodeValue;
+                if(cantAndroid === "android"){
+                    contador++
+                }
+            }
+			document.getElementById("imprimirR").innerHTML = "Hay " + contador + " dispositivos con este sistema operativo";
+		}
+
+        function numSO(){
+			var contador = 0;
+            for(let i=0;i<7;i++){
+                var cantSO = documentoXML.getElementsByTagName("sistemaoperativo")[i].childNodes[0].nodeValue;
+                if(cantSO === "OS"){
+                    contador++
+                }
+            }
+			document.getElementById("imprimirR").innerHTML = "Hay " + contador + " dispositivos con este sistema operativo";
+		}
+
+	</script>
+</body>
+</html>

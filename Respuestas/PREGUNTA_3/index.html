@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pregunta 3</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <style type="text/css">
+    #background{position:absolute; width:99%; height:130%;}
+    #fixed {position:absolute; top: 0px; left: 0px;}
+    #impresionP {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<div>
+    <img id="background" src="../../Imagenes/fondo.jpg"/> 
+  </div>
+  
+<div id="fixed" style="padding-left:30%; padding-top: 10%;">
+<br>
+    <img src="../../Imagenes/selloespe.jpg"  width="65%" align="center">
+    <h1 style="padding-left:25%;">Pregunta 3</h1>
+  <p>Escoja su género de películas preferido para desplegar una tabla con la información correspondiente</p>
+
+      <select id="selectorGenero" onchange="obtenerDatos(this.value, 'Genero')">
+        <option value="">Elija una de las siguientes opciones.</option>
+
+          <option value="Terror">Terror</option>
+          <option value="Drama">Drama</option>
+          <option value="Ciencia Ficcion">Ciencia ficción</option>
+          <option value="Musical">Musical</option>
+
+      </select>
+            <p id="impresionPGenero"></p>
+            <br>
+
+            <p>Escoja su protagonista de películas preferido para desplegar una tabla 
+              con la información correspondiente</p>
+            
+                  <select id="selectorProtagonista" onchange="obtenerDatos(this.value, 'Protagonista')">
+                    <option value="">Elija una de las siguientes opciones.</option>
+            
+                      <option value="Keanu Reaves">Keanu Reaves</option>
+                      <option value="Sylvester Stallone">Sylvester Stallone</option>
+                      <option value="Tom Cruise">Tom Cruise</option>
+                      <option value="Emma Stone">Emma Stone</option>
+                      <option value="Sam Wortnington">Sam Wortnington</option>
+            
+                  </select>
+                        <p id="impresionPProtagonista"></p>
+                        <br>
+      <button onclick="window.location.href='../../index.html'">Menu principal</button>
+</div>
+
+<script>
+function obtenerDatos(opcion, tipo) {
+  var objeto;
+  var dbParam;
+  var xmlhttp;
+  var objetoNuevo;
+  var aux; 
+  var espacio = "";
+
+  objeto = { table: opcion, limit: 20 };
+  dbParam = JSON.stringify(objeto);
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", "./Peliculas.json", true);
+  xmlhttp.setRequestHeader("Content-type", "application/json");
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      objetoNuevo = JSON.parse(this.responseText);
+      espacio += "<table border='2'><tr><td>PROTAGONISTA</td><td>PELÍCULA</td></tr>";
+      
+      for (aux in objetoNuevo.peliculas) {
+        if(objetoNuevo.peliculas[aux][tipo] == opcion){
+          espacio += "<tr><td>" + objetoNuevo.peliculas[aux].Protagonista + "</td><td>"+objetoNuevo.peliculas[aux].Nombre+"</td></tr>";
+        }
+      }
+      espacio += "</table>";    
+      if (tipo === 'Genero') {
+        document.getElementById("impresionPGenero").innerHTML = espacio;
+      } else if (tipo === 'Protagonista') {
+        document.getElementById("impresionPProtagonista").innerHTML = espacio;
+      }
+    }
+  };
+
+  xmlhttp.send(dbParam);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<animales>
+	<mamiferos>
+		<id>A01</id>
+		<tipo>mamiferos</tipo>
+		<nombre>El Panda</nombre>
+		<comida>Bambu</comida>
+	</mamiferos>
+	<mamiferos>
+		<id>A02</id>
+		<tipo>mamiferos</tipo>
+		<nombre>El tigre</nombre>
+		<comida>Carne</comida>
+	</mamiferos>
+	<mamiferos>
+		<id>A03</id>
+		<tipo>mamiferos</tipo>
+		<nombre>El Elefante</nombre>
+		<comida>Raices</comida>
+	</mamiferos>
+	<mamiferos>
+		<id>A04</id>
+		<tipo>mamiferos</tipo>
+		<nombre>Jirafa</nombre>
+		<comida>Hiervas</comida>
+	</mamiferos>
+	<reptiles>
+		<id>A05</id>
+		<tipo>reptiles</tipo>
+		<nombre>La tortuga</nombre>
+		<comida>Algas Marinas</comida>
+	</reptiles>
+	<reptiles>
+		<id>A06</id>
+		<tipo>reptiles</tipo>
+		<nombre>Dragon de Komodo</nombre>
+		<comida>Hierba</comida>
+	</reptiles>
+	<aves>
+		<id>A07</id>
+		<tipo>aves</tipo>
+		<nombre>El Perico</nombre>
+		<comida>Diente de León</comida>
+	</aves>
+	<aves>
+		<id>A08</id>
+		<tipo>aves</tipo>
+		<nombre>El Guacamayo</nombre>
+		<comida>Frutos pequenios</comida>
+	</aves>
+	<aves>
+		<id>A09</id>
+		<tipo>aves</tipo>
+		<nombre>El Pinzon</nombre>
+		<comida>Frutos pequenios</comida>
+	</aves>
+	<peces>
+		<id>A010</id>
+		<tipo>peces</tipo>
+		<nombre>El atun</nombre>
+		<comida>Pequeños crustaseos</comida>
+	</peces>
+	<anfibios>
+		<id>A011</id>
+		<tipo>anfibios</tipo>
+		<nombre>La rana</nombre>
+		<comida>Moscas</comida>
+	</anfibios>
+	<insectos>
+		<id>A012</id>
+		<tipo>insectos</tipo>
+		<nombre>Araña</nombre>
+		<comida>Moscas y polillas</comida>
+	</insectos>
+</animales>
